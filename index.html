@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Header</title>
+</head>
+<body>
+    <header class="header-wrapper">
+        <img class="logo" src="revou.png" alt="">
+        <div class="menu">
+            <button>Home</button>
+            <button>My Profile</button>
+            <button>Portofolio</button>
+            <button>Message Us</button>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div>
+
+            <img class="img-slideshow" src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <img class="img-slideshow" src="https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <img class="img-slideshow" src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+
+            <button onclick="plusDivs(-1)">Previous</button>
+            <button onclick="plusDivs(1)">Next</button>
+
+        </div>
+
+        <script>
+
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var imgList = document.getElementsByClassName("img-slideshow");
+                if (n > imgList.length) slideIndex = 1;
+                else if(n < 1) slideIndex = imgList.length;
+
+                for(i = 0; i < imgList.length; i++) {
+                    imgList[i].style.display = "none";
+                }
+                // 123
+                // 012
+                imgList[slideIndex - 1].style.display = "block";
+            }
+
+            // ini untuk foto geser otomatis
+            setInterval(() => {
+                plusDivs(1);
+            }, 1500);
+
+        </script>
+    </main>
+</body>
+</html>
